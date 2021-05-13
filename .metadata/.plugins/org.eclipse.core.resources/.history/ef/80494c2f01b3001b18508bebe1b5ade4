@@ -1,0 +1,9 @@
+package com.hp.Businessman;
+
+public class Business {
+	
+	private int bId;
+	private String name;
+	private String type;
+
+}

@@ -1,0 +1,27 @@
+package com.springbootcrud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.springbootcrud.teacher.Teacher;
+import com.springbootcrud.teacher.dao.ProductRepository;
+
+@SpringBootApplication
+public class SprintBootJpaApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext c = SpringApplication.run(SprintBootJpaApplication.class, args);
+		
+		ProductRepository pr = c.getBean(ProductRepository.class);
+		
+		Teacher t = new Teacher();
+		t.setName("harpalsinh");
+		t.setAddress("Vadoadar");
+		
+		Teacher t1 = pr.save(t);
+		
+		System.out.println(t);
+	}
+
+}

@@ -1,0 +1,29 @@
+package com.hp.Businessman.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hp.Businessman.Businessman;
+import com.hp.Businessman.service.BusinessmanService;
+
+@RestController
+public class BusinessmanControlle {
+	
+	@Autowired
+	private BusinessmanService bs;
+	
+	@PostMapping("/addbusinessman")
+	public Businessman addBm(@RequestBody Businessman businessman) {
+		return bs.addBusinessman(businessman);
+	}
+	
+	@PostMapping("/addallbusinessman/")
+	public List<Businessman> addBm(@RequestBody List<Businessman> businessmans) {
+		return bs.addMany(businessmans);
+	}
+
+}

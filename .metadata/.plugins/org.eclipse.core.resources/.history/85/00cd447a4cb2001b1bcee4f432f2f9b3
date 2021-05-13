@@ -1,0 +1,48 @@
+package com.hp.controller;
+
+import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hp.service.businesslogic.MyService;
+import com.hp.simplePojo.Student;
+
+@RestController
+public class MyController {
+	
+	@Autowired
+	private MyService myService;
+	
+	//---------------CREATE----------------------
+	@PostMapping("/addstudent")
+	public Student saveStudent(@RequestBody Student student){
+		return myService.createStudent(student);
+	}
+	
+	@PostMapping("/addallstudent")
+	public List<Student> createAllStudent(@RequestBody List<Student> students){
+		return myService.saveAllStudent(students);
+	}
+	//---------------GET/READ----------------------
+	@GetMapping("/getstudent")
+	public List<Student> getStudent(){
+		return myService.getAllStudent();
+	}
+	
+	@GetMapping("/getbyidstudnet/{id}")
+	public Student getById(@PathVariable ("id") int id) {
+		return myService.getByStudentId(id);
+	}
+	
+	@GetMapping("/getbystdstudent/{std}")
+	public Student getByStd(@PathVariable ("std") int std) {
+		return myService.get
+	}
+	//---------------UPDATE----------------------
+	//---------------DELETE----------------------
+}

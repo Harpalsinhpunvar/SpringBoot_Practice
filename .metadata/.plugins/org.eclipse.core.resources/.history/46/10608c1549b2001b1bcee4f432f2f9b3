@@ -1,0 +1,27 @@
+package com.hp.service.businesslogic;
+
+import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.hp.repository.MyRepository;
+import com.hp.simplePojo.Student;
+
+@Component
+public class MyService {
+	
+	@Autowired
+	private MyRepository myRepository;
+	
+	//-----------------CREATE-------->POST
+	public List<Student> getStudent(){
+		List<Student> student = new ArrayList<>();
+		student = myRepository.findAll();
+		return student;
+	}
+	//-----------------READ---------->GET
+	//-----------------UPDATE-------->PUT
+	//-----------------DELETE-------->DELETE
+
+}

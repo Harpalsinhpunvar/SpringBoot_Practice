@@ -1,0 +1,8 @@
+package com.hp.Businessman.service;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BusinessmanService {
+
+}

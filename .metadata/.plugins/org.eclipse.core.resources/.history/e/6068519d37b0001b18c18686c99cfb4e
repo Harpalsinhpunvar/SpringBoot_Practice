@@ -1,0 +1,37 @@
+package com.springbootcrud;
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.springbootcrud.teacher.Teacher;
+import com.springbootcrud.teacher.dao.ProductRepository;
+
+@SpringBootApplication
+public class SprintBootJpaApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext c = SpringApplication.run(SprintBootJpaApplication.class, args);
+		
+		ProductRepository pr = c.getBean(ProductRepository.class);
+		
+		Teacher t1 = new Teacher();
+		t1.setName("harpalsinh");
+		t1.setAddress("Vadoadar");
+		
+		Teacher t2 = new Teacher();
+		t2.setName("Rajpalsinh");
+		t2.setAddress("Lunawada");
+		
+		List<Teacher> t = List.of(t1, t2);
+		
+		Iterable<Teacher> result = pr.saveAll(t);
+		
+		System.out.println(result);
+		
+		
+	}
+
+}

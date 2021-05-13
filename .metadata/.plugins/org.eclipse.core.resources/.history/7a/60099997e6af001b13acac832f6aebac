@@ -1,0 +1,37 @@
+package com.jpa;
+
+import java.util.*;
+
+import org.springframework.boot.SpringApplication;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.jpa.Student.Student;
+import com.jpa.Student.Repository.StudentRepository;
+
+@SpringBootApplication
+public class JpaApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(JpaApplication.class, args);
+		
+		StudentRepository studentRepository = context.getBean(StudentRepository.class);
+		
+		Student st1 = new Student();
+		st1.setName("har");
+		st1.setCity("vadodara");
+		
+		Student st2 = new Student();
+		st2.setName("raj");
+		st2.setCity("Lunawada");
+		
+//		Student st = studentRepository.save(st1);
+		
+		List<Student> = ArrayList<>();
+		
+		System.out.println("All Save!!!");
+		
+	}
+
+}

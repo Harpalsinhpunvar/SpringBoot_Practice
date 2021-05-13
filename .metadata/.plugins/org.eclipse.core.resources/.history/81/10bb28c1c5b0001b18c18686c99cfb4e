@@ -1,0 +1,27 @@
+package com.hp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.hp.pojo.Pojo;
+import com.hp.pojo.repository.Repository;
+
+@SpringBootApplication
+public class SpringJpaCrudApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(SpringJpaCrudApplication.class, args);
+		
+		Repository r = context.getBean(Repository.class);
+		
+		Pojo pojo1 = new Pojo();
+		pojo1.setName("harpalsinh");
+		
+		Pojo pojo = r.save(pojo1);
+		
+		System.out.println(pojo);
+		
+	}
+
+}

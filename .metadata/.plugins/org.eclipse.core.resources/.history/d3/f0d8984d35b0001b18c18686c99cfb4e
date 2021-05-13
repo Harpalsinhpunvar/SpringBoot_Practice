@@ -1,0 +1,7 @@
+package com.springbootcrud.teacher.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductRepository extends CrudRepository<Teacher, Integer> {
+
+}

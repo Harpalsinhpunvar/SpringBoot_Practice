@@ -1,0 +1,35 @@
+package com.hp;
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.hp.pojo.Pojo;
+import com.hp.pojo.repository.Repository;
+
+@SpringBootApplication
+public class SpringJpaCrudApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(SpringJpaCrudApplication.class, args);
+		
+		Repository r = context.getBean(Repository.class);
+		
+		Pojo pojo1 = new Pojo();
+		pojo1.setName("harpalsinh");
+		Pojo pojo2 = new Pojo();
+		pojo2.setName("rajpalsinh");
+		
+		List<Pojo> list = List.of(pojo1, pojo2);
+		
+		Iterable<Pojo> result = r.saveAll(list);
+		
+		result.forEach(e->System.out.println(e));
+		
+		System.out.println(result);
+		
+	}
+
+}

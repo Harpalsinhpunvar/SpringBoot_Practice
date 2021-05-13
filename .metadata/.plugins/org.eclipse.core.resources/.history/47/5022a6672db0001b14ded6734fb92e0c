@@ -1,0 +1,5 @@
+package com.springbootcrud.product.service;
+
+public class Service {
+
+}

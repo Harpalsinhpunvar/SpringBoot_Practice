@@ -1,0 +1,5 @@
+package com.jpa.Student.Repository;
+
+public class StudentRepository {
+
+}
